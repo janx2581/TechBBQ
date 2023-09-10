@@ -14,7 +14,7 @@ os.environ["REPLICATE_API_TOKEN"] = "r8_bBCxqkUHTfwz818CIEtNtnojCT7yRZJ3gytkY"
 
 # Initialize Google Sheets API
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
-credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/client_secret_379777323467-bs00ruut8d6d85sdfp5dphgj6iend0po.apps.googleusercontent.com.json', scopes=scope)
+credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/trying_llama_yt/client_secret_379777323467-bs00ruut8d6d85sdfp5dphgj6iend0po.apps.googleusercontent.com.json', scopes=scope)
 client = gspread.authorize(credentials)
 spreadsheet = client.open('HTHC-techbbq-sheet')
 worksheet = spreadsheet.get_worksheet(0)

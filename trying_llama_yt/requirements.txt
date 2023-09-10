@@ -2,3 +2,6 @@ replicate
 openpyxl
 streamlit_autorefresh
 gspread
+google-auth-oauthlib
+google-auth-httplib2
+streamlit

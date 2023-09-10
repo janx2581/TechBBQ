@@ -1,2 +1,3 @@
 replicate
 openpyxl
+streamlit_autorefresh

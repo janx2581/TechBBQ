@@ -1,3 +1,4 @@
 replicate
 openpyxl
 streamlit_autorefresh
+gspread

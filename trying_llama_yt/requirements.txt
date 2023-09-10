@@ -5,3 +5,4 @@ gspread
 google-auth-oauthlib
 google-auth-httplib2
 streamlit
+oauth2client

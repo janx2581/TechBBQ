@@ -3,12 +3,21 @@ import streamlit as st
 import replicate
 import os
 import time
+import gspread
+from google.oauth2.service_account import Credentials
 
 import pandas as pd
 from openpyxl import load_workbook, Workbook # Import openpyxl
 
 # Set the Replicate API token
 os.environ["REPLICATE_API_TOKEN"] = "r8_bBCxqkUHTfwz818CIEtNtnojCT7yRZJ3gytkY"
+
+# Initialize Google Sheets API
+scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
+credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/client_secret_379777323467-bs00ruut8d6d85sdfp5dphgj6iend0po.apps.googleusercontent.com.json', scopes=scope)
+client = gspread.authorize(credentials)
+spreadsheet = client.open('HTHC-techbbq-sheet')
+worksheet = spreadsheet.get_worksheet(0)
 
 # Set the title of the app
 st.set_page_config(page_title="SQL HTHC AI 🔴⚪️")
@@ -156,45 +165,13 @@ if st.session_state['show_form']:
         participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
         submit_button = st.form_submit_button(label='Submit Entry')
 
-### Data base
-
-import sqlite3
-
-# Connect to the SQLite database (or create it if it doesn't exist)
-conn = sqlite3.connect('submissions.db')
-
-# Create a new SQLite cursor
-cur = conn.cursor()
-
-# Create a new table with the name 'submissions'
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS submissions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT,
-        creative_text TEXT
-    )
-""")
-
-# Commit the changes and close the connection
-conn.commit()
-conn.close()
-
 if submit_button:
     data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
 
-    conn = sqlite3.connect('submissions.db')
-    cur = conn.cursor()
+    # Add a new row to the Google Sheets document
+    worksheet.append_row([data_dict['Name'], data_dict['Email'], data_dict['Creative Text']])
 
-    cur.execute("""
-        INSERT INTO submissions (name, email, creative_text)
-        VALUES (?, ?, ?)
-    """, (data_dict['Name'], data_dict['Email'], data_dict['Creative Text']))
-
-    conn.commit()
-    conn.close()
-
-    st.success('Submitted, thank you!')
+    st.success('Submitted in google, thank you!')
 
     clear_form()
 

@@ -71,7 +71,7 @@ def get_total_entries():
 total_entries = get_total_entries()
 current_page = 0
 
-PAGE_SIZE = 3  # Set this to the number of rows you want to display on each page
+PAGE_SIZE = 5  # Set this to the number of rows you want to display on each page
 
 
 def load_data(offset, limit):

@@ -87,7 +87,7 @@ def load_data(offset, limit):
 
 
 previous_total_entries = get_total_entries()
-st.write(f"Total Entries outside loop: {total_entries}")  # This will display the total entries in the app
+#st.write(f"Total Entries outside loop: {total_entries}")  # This will display the total entries in the app
 
 while True:
     total_entries = get_total_entries()
@@ -106,10 +106,12 @@ while True:
             new_entry_text = ""
 
         # Display the new entry prominently
-        new_entry_display = st.markdown(f"<div style='font-size:3em;'>{new_entry_text}</div>", unsafe_allow_html=True)
+        new_entry_display = st.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>", unsafe_allow_html=True)
 
-        # Pause for 20 seconds
-        time.sleep(10)
+        for i in range(countdown_time, 0, -1):
+            countdown_timer.write(f"Next slide in: {i} seconds", unsafe_allow_html=True)
+            time.sleep(1)
+            countdown_timer.empty()
 
         # Clear the new entry display
         new_entry_display.empty()

@@ -118,7 +118,7 @@ while True:
 
         previous_total_entries = total_entries
 
-        st.write(f"Total Entries at the end of loop: {total_entries}")  # This will display the total entries in the app
+        #st.write(f"Total Entries at the end of loop: {total_entries}")  # This will display the total entries in the app
 
     offset = current_page * PAGE_SIZE
     data = load_data(offset, PAGE_SIZE)

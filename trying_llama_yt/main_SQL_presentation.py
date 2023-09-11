@@ -95,8 +95,7 @@ while True:
         # A new entry has been added
         spreadsheet = client.open('HTHC-techbbq-sheet')
         worksheet = spreadsheet.get_worksheet(0)
-        total_entries = get_total_entries()  # Update the total_entries at the beginning of each loop iteration
-        new_entry = worksheet.get('A' + str(total_entries) + ':Z' + str(total_entries))  # Get the new entry
+        new_entry = worksheet.get('A' + str(total_entries+1) + ':Z' + str(total_entries+1))  # Get the new entry
 
         # Display the new entry prominently
         new_entry_display = st.markdown(f"<div style='font-size:3em;'>{new_entry}</div>", unsafe_allow_html=True)

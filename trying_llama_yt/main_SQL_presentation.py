@@ -43,24 +43,12 @@ st.markdown("""
             border: 2px solid white;
         }
         th, td {
-            border: 2px solid white;
+            border: 2px solid white !important;
         }
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-    <style>
-        table {
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-        th, td {
-            border: 1px solid white;
-            border-right: 1px solid white;
-            border-bottom: 1px solid white;
-        }
-    </style>
-""", unsafe_allow_html=True)
+
 
 st.title('🔴⚪ User submissions for HTHC AI competition! 🔴⚪️')
 st.markdown('<h2 style="font-size:1.5em;">Create something creative about healthtech! Scan the QR code below</h2>', unsafe_allow_html=True)

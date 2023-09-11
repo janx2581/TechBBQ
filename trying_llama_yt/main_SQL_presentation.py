@@ -59,6 +59,7 @@ new_entry_display = st.empty()  # Move this line up to reserve space for the new
 
 
 countdown_time = 10  # Adjust the countdown time as per your requirements
+countdown_time_new_entry = 20  # Adjust the countdown time as per your requirements
 countdown_timer = st.empty()
 
 page_number = st.empty()
@@ -72,6 +73,7 @@ def get_total_entries():
 
 total_entries = get_total_entries()
 current_page = 0
+st.write(f"Total Entries: {total_entries}")  # This line will print the total entries on the Streamlit interface
 
 PAGE_SIZE = 5  # Set this to the number of rows you want to display on each page
 
@@ -107,7 +109,7 @@ while True:
             new_entry_text = ""
 
 
-        for i in range(countdown_time, 0, -1):
+        for i in range(countdown_time_new_entry, 0, -1):
             countdown_timer.write(f"{i} seconds", unsafe_allow_html=True)
             time.sleep(1)
             countdown_timer.empty()

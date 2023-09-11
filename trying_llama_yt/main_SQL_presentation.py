@@ -60,7 +60,6 @@ countdown_time = 10  # Adjust the countdown time as per your requirements
 countdown_timer = st.empty()
 
 page_number = st.empty()
-table = st.empty()
 
 def get_total_entries():
     spreadsheet = client.open('HTHC-techbbq-sheet')
@@ -135,3 +134,5 @@ while True:
         countdown_timer.write(f"Next slide in: {i} seconds", unsafe_allow_html=True)
         time.sleep(1)
         countdown_timer.empty()
+
+table = st.empty()

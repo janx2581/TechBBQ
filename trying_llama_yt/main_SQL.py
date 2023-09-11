@@ -12,9 +12,29 @@ from openpyxl import load_workbook, Workbook # Import openpyxl
 # Set the Replicate API token
 os.environ["REPLICATE_API_TOKEN"] = "r8_bBCxqkUHTfwz818CIEtNtnojCT7yRZJ3gytkY"
 
+
+# Secrets work
+
+service_account_json = {
+  "type": st.secrets["type"],
+  "project_id": st.secrets["project_id"],
+  "private_key_id": st.secrets["private_key_id"],
+  "private_key": st.secrets["private_key"],
+  "client_email": st.secrets["client_email"],
+  "client_id": st.secrets["client_id"],
+  "auth_uri": st.secrets["auth_uri"],
+  "token_uri": st.secrets["token_uri"],
+  "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
+  "client_x509_cert_url": st.secrets["client_x509_cert_url"],
+  "universe_domain": st.secrets["universe_domain"]
+}
+
+#For local use
+#credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/trying_llama_yt/techbbq-test-06079fa24115.json', scopes=scope)
+
 # Initialize Google Sheets API
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
-credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/trying_llama_yt/techbbq-test-06079fa24115.json', scopes=scope)
+credentials = Credentials.from_service_account_info(service_account_json)
 client = gspread.authorize(credentials)
 spreadsheet = client.open('HTHC-techbbq-sheet')
 worksheet = spreadsheet.get_worksheet(0)

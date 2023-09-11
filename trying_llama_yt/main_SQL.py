@@ -34,7 +34,7 @@ service_account_json = {
 
 # Initialize Google Sheets API
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
-credentials = Credentials.from_service_account_info(service_account_json)
+credentials = Credentials.from_service_account_info(service_account_json, scope=scope)
 client = gspread.authorize(credentials)
 spreadsheet = client.open('HTHC-techbbq-sheet')
 worksheet = spreadsheet.get_worksheet(0)

@@ -61,6 +61,8 @@ new_entry_display = st.empty()  # Move this line up to reserve space for the new
 countdown_time = 10  # Adjust the countdown time as per your requirements
 countdown_timer = st.empty()
 
+page_number = st.empty()
+table = st.empty()  # A container for the table
 
 def get_total_entries():
     spreadsheet = client.open('HTHC-techbbq-sheet')
@@ -105,10 +107,10 @@ while True:
             new_entry_text = ""
 
         # Display the new entry prominently
-        new_entry_display = st.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>", unsafe_allow_html=True)
+        new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>", unsafe_allow_html=True)
 
         for i in range(countdown_time, 0, -1):
-            countdown_timer.write(f"Next slide in: {i} seconds", unsafe_allow_html=True)
+            countdown_timer.write(f"Next slide in new entry: {i} seconds", unsafe_allow_html=True)
             time.sleep(1)
             countdown_timer.empty()
 
@@ -135,6 +137,3 @@ while True:
         countdown_timer.write(f"Next slide in: {i} seconds", unsafe_allow_html=True)
         time.sleep(1)
         countdown_timer.empty()
-
-table = st.empty()
-page_number = st.empty()

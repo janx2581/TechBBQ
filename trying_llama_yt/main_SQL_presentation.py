@@ -95,6 +95,7 @@ while True:
         # A new entry has been added
         spreadsheet = client.open('HTHC-techbbq-sheet')
         worksheet = spreadsheet.get_worksheet(0)
+        total_entries = get_total_entries()
         new_entry = worksheet.get('A' + str(total_entries) + ':Z' + str(total_entries))  # Get the new entry
 
         # Display the new entry prominently

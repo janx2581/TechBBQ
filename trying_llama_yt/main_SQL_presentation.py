@@ -91,7 +91,7 @@ previous_total_entries = get_total_entries()
 
 while True:
     total_entries = get_total_entries()
-    st.write(f"Total Entries inside loop: {total_entries}")  # This will display the total entries in the app
+    #st.write(f"Total Entries inside loop: {total_entries}")  # This will display the total entries in the app
 
     if total_entries > previous_total_entries:
         # A new entry has been added

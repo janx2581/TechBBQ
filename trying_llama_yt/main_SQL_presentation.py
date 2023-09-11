@@ -100,7 +100,7 @@ while True:
         worksheet = spreadsheet.get_worksheet(0)
         total_entries = get_total_entries()
 
-        new_entry = worksheet.get('c' + str(total_entries + 1))  # Get the new entry
+        new_entry = worksheet.get('c' + str(total_entries))  # Get the new entry
         if new_entry:
             new_entry_text = new_entry[0][0]
         else:

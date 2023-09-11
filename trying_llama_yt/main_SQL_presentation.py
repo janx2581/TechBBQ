@@ -106,13 +106,15 @@ while True:
         else:
             new_entry_text = ""
 
-        # Display the new entry prominently
-        new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>", unsafe_allow_html=True)
-
+    
         for i in range(countdown_time, 0, -1):
             countdown_timer.write(f"Next slide in new entry: {i} seconds", unsafe_allow_html=True)
             time.sleep(1)
             countdown_timer.empty()
+
+            # Display the new entry prominently
+            new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>",
+                                       unsafe_allow_html=True)
 
         # Clear the new entry display
         new_entry_display.empty()

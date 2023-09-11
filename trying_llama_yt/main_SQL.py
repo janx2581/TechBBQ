@@ -14,10 +14,12 @@ os.environ["REPLICATE_API_TOKEN"] = "r8_bBCxqkUHTfwz818CIEtNtnojCT7yRZJ3gytkY"
 
 # Initialize Google Sheets API
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
-credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/trying_llama_yt/client_secret_379777323467-bs00ruut8d6d85sdfp5dphgj6iend0po.apps.googleusercontent.com.json', scopes=scope)
+credentials = Credentials.from_service_account_file('/Users/janhoegh/Documents/GitHub/TechBBQ/trying_llama_yt/techbbq-test-06079fa24115.json', scopes=scope)
 client = gspread.authorize(credentials)
 spreadsheet = client.open('HTHC-techbbq-sheet')
 worksheet = spreadsheet.get_worksheet(0)
+
+
 
 # Set the title of the app
 st.set_page_config(page_title="SQL HTHC AI 🔴⚪️")
@@ -117,7 +119,7 @@ if prompt := st.chat_input(disabled=not os.environ['REPLICATE_API_TOKEN']):
         st.write(prompt)
 
 # Generate a new response if the last message is not from the assistant
-if st.session_state.messages[-1]["role"] != "assistant":
+if st.session_state.messages and st.session_state.messages[-1]["role"] != "assistant": # Changed something here
     with st.chat_message("Assistant"):
         with st.spinner("Thinking..."):
             # Generate LLaMA2 response using the generate_llama2_response() function

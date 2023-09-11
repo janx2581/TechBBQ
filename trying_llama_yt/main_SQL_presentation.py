@@ -87,11 +87,10 @@ def load_data(offset, limit):
 
 
 previous_total_entries = get_total_entries()
-#st.write(f"Total Entries outside loop: {total_entries}")  # This will display the total entries in the app
 
 while True:
     total_entries = get_total_entries()
-    #st.write(f"Total Entries inside loop: {total_entries}")  # This will display the total entries in the app
+
 
     if total_entries > previous_total_entries:
         # A new entry has been added
@@ -117,8 +116,6 @@ while True:
         new_entry_display.empty()
 
         previous_total_entries = total_entries
-
-        #st.write(f"Total Entries at the end of loop: {total_entries}")  # This will display the total entries in the app
 
     offset = current_page * PAGE_SIZE
     data = load_data(offset, PAGE_SIZE)

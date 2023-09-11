@@ -112,8 +112,8 @@ while True:
             time.sleep(1)
             countdown_timer.empty()
 
-        # Display the new entry prominently
-        new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>",
+            # Display the new entry prominently
+            new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>",
                                        unsafe_allow_html=True)
 
         # Clear the new entry display

@@ -108,7 +108,7 @@ while True:
 
     
         for i in range(countdown_time, 0, -1):
-            countdown_timer.write(f"Next slide in new entry: {i} seconds", unsafe_allow_html=True)
+            countdown_timer.write(f"{i} seconds", unsafe_allow_html=True)
             time.sleep(1)
             countdown_timer.empty()
 

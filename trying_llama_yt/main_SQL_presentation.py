@@ -32,8 +32,8 @@ client = gspread.authorize(credentials)
 st.markdown("""
     <style>
         table {width:100%;}
-        th {font-size:0.8em;}
-        td {font-size:1em; white-space: pre-wrap; word-wrap: break-word;}
+        th {font-size:1.1em;}
+        td {font-size:1.5em; white-space: pre-wrap; word-wrap: break-word;}
     </style>
 """, unsafe_allow_html=True)
 

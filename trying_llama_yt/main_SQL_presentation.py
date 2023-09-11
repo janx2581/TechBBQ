@@ -98,10 +98,13 @@ while True:
         new_entry = worksheet.get('A' + str(total_entries) + ':Z' + str(total_entries))  # Get the new entry
 
         # Display the new entry prominently
-        st.markdown(f"<div style='font-size:3em;'>{new_entry}</div>", unsafe_allow_html=True)
+        new_entry_display = st.markdown(f"<div style='font-size:3em;'>{new_entry}</div>", unsafe_allow_html=True)
 
         # Pause for 20 seconds
         time.sleep(20)
+
+        # Clear the new entry display
+        new_entry_display.empty()
 
         previous_total_entries = total_entries
 

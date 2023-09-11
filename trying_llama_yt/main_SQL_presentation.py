@@ -106,14 +106,14 @@ while True:
         else:
             new_entry_text = ""
 
-    
+
         for i in range(countdown_time, 0, -1):
             countdown_timer.write(f"{i} seconds", unsafe_allow_html=True)
             time.sleep(1)
             countdown_timer.empty()
 
-            # Display the new entry prominently
-            new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>",
+        # Display the new entry prominently
+        new_entry_display.markdown(f"<div style='font-size:3em;'>New Entry: {new_entry_text}</div>",
                                        unsafe_allow_html=True)
 
         # Clear the new entry display

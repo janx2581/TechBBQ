@@ -98,10 +98,15 @@ while True:
         spreadsheet = client.open('HTHC-techbbq-sheet')
         worksheet = spreadsheet.get_worksheet(0)
         total_entries = get_total_entries()
-        new_entry = worksheet.get('c' + str(total_entries+1))  # Get the new entry
+
+        new_entry = worksheet.get('c' + str(total_entries + 1))  # Get the new entry
+        if new_entry:
+            new_entry_text = new_entry[0][0]
+        else:
+            new_entry_text = ""
 
         # Display the new entry prominently
-        new_entry_display = st.markdown(f"<div style='font-size:3em;'>{new_entry}</div>", unsafe_allow_html=True)
+        new_entry_display = st.markdown(f"<div style='font-size:3em;'>{new_entry_text}</div>", unsafe_allow_html=True)
 
         # Pause for 20 seconds
         time.sleep(10)

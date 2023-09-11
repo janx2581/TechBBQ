@@ -6,3 +6,5 @@ google-auth-oauthlib
 google-auth-httplib2
 streamlit
 oauth2client
+google.oauth2.service_account
+pandas

@@ -102,7 +102,7 @@ while True:
         new_entry_display = st.markdown(f"<div style='font-size:3em;'>{new_entry}</div>", unsafe_allow_html=True)
 
         # Pause for 20 seconds
-        time.sleep(20)
+        time.sleep(10)
 
         # Clear the new entry display
         new_entry_display.empty()

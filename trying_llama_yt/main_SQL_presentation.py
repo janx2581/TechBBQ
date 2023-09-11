@@ -55,11 +55,12 @@ st.markdown('<h2 style="font-size:1.5em;">Create something creative about health
 st.markdown('<h2 style="font-size:1em;">(I need to make this a bit more pretty)</h2>', unsafe_allow_html=True)
 st.image('trying_llama_yt/icon white.png', width=50)
 
+new_entry_display = st.empty()  # Move this line up to reserve space for the new entry above the table
+
 
 countdown_time = 10  # Adjust the countdown time as per your requirements
 countdown_timer = st.empty()
 
-page_number = st.empty()
 
 def get_total_entries():
     spreadsheet = client.open('HTHC-techbbq-sheet')
@@ -136,3 +137,4 @@ while True:
         countdown_timer.empty()
 
 table = st.empty()
+page_number = st.empty()

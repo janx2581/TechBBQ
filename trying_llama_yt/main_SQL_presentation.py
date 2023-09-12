@@ -73,7 +73,6 @@ def get_total_entries():
 
 total_entries = get_total_entries()
 current_page = 0
-st.write(f"Total Entries: {total_entries}")  # This line will print the total entries on the Streamlit interface
 
 PAGE_SIZE = 5  # Set this to the number of rows you want to display on each page
 
@@ -104,7 +103,7 @@ while True:
 
         new_entry = worksheet.get('c' + str(total_entries+1))  # Get the new entry
         if new_entry:
-            new_entry_text = new_entry[0][0]
+            new_entry_text = new_entry[0][0].replace('\n', '<br>')
         else:
             new_entry_text = ""
 

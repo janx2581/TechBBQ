@@ -190,7 +190,7 @@ if st.session_state['show_form']:
             submit_button = st.form_submit_button(label='Submit Entry')
         else:
             st.write("Please consent to the sharing of personal data to submit the form.")
-        submit_button = st.form_submit_button(label='Submit Entry')
+        #submit_button = st.form_submit_button(label='Submit Entry')
 
 if submit_button:
     data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}

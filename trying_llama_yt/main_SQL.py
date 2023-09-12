@@ -55,14 +55,13 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Hide made with streamlit and hamburger
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # Session state variable to control the visibility of the chatbot and information box
 if 'show_chatbot' not in st.session_state:

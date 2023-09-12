@@ -204,6 +204,18 @@ if st.session_state['show_form']:
 
                 st.experimental_rerun()
         else:
-            st.write("Please consent to the sharing of personal data to submit the form.")
+            st.markdown('''
+                        <style>
+                            .fake-button {
+                                padding: 0.65em 1.6em;
+                                color: #fff;
+                                background-color: #gray;
+                                border: none;
+                                cursor: not-allowed;
+                            }
+                        </style>
+                        <button class="fake-button" disabled>Submit Entry</button>
+                    ''', unsafe_allow_html=True)
+            st.warning("Please consent to the sharing of personal data to submit the form.")
 
 

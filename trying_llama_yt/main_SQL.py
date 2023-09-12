@@ -62,7 +62,7 @@ if 'show_info' not in st.session_state:
     st.session_state['show_info'] = True
 
 # Button to toggle both chatbot and information box visibility
-toggle_button = st.button("Toggle Chatbot and Information Box")
+toggle_button = st.button("Hide/show rules box")
 
 # Toggle visibility based on button click
 if toggle_button:
@@ -71,12 +71,14 @@ if toggle_button:
 
 # Display the information box when 'show_info' is True
 if st.session_state['show_info']:
-    st.markdown("### Information Box and privacy policy")
+    st.markdown("### Rules Box and privacy policy")
     st.write("The rules: "
              "Use this as a chatbot. Prompt it to give a creative output about health tech. ")
     st.write("3 Random and 2 creative outputs win a HTHC Waterbottle 💧")
     st.write("Creativity is measured by originality and ability to think outside the box")
     st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/).")
+    st.write("")
+    st.write("press the button above and start prompting!")
 
 # Display the chatbot section when 'show_chatbot' is True
 if st.session_state['show_chatbot']:
@@ -186,7 +188,7 @@ if st.session_state['show_chatbot']:
         st.session_state['show_form'] = False
 
     # Create a button to toggle the visibility of the form
-    if st.button('Ready to submit? Click here'):
+    if st.button('Finnished prompting and ready to submit? Click here'):
         st.session_state['show_form'] = not st.session_state['show_form']
 
     # Placeholder to hold the form

@@ -71,6 +71,8 @@ if toggle_button:
 
 # Display the information box when 'show_info' is True
 if st.session_state['show_info']:
+    st.markdown("### Information Box")
+    st.write("The rules: ")
     info_text = st.text_area("Information Box", "Some initial information here.")
 
 # Display the chatbot section when 'show_chatbot' is True

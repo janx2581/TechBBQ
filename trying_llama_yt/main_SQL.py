@@ -72,6 +72,9 @@ if 'show_info' not in st.session_state:
 # Button to toggle both chatbot and information box visibility
 toggle_button = st.button("Hide/show rules box")
 
+# Add a button to clear the form fields
+    st.button('Clear Chat History', on_click=clear_form)
+
 # Toggle visibility based on button click
 if toggle_button:
     st.session_state['show_info'] = not st.session_state['show_info']
@@ -125,9 +128,6 @@ if st.session_state['show_chatbot']:
         st.session_state['show_form'] = False
         clear_chat_history()
 
-
-    # Add a button in the sidebar to clear the form fields
-    st.button('Clear Chat History', on_click=clear_form)
 
 
     # Function for generating LLaMA2 response

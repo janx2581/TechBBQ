@@ -73,7 +73,7 @@ if 'show_info' not in st.session_state:
 toggle_button = st.button("Hide/show rules box")
 
 # Add a button to clear the form fields
-    st.button('Clear Chat History', on_click=clear_form)
+st.button('Clear Chat History', on_click=clear_form)
 
 # Toggle visibility based on button click
 if toggle_button:

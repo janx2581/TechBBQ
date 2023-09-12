@@ -72,7 +72,9 @@ if toggle_button:
 # Display the information box when 'show_info' is True
 if st.session_state['show_info']:
     st.markdown("### Information Box and privacy policy")
-    st.write("The rules: <br/> Use this as a chatbot. Prompt it to give a creative output about health tech. <br/> By submitting, you accept HTHC's privacy policy [privacy policy](https://healthtechhub.org/). ")
+    st.write("The rules: "
+             "Use this as a chatbot. Prompt it to give a creative output about health tech. "
+             "By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/).")
 
 # Display the chatbot section when 'show_chatbot' is True
 if st.session_state['show_chatbot']:

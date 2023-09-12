@@ -11,7 +11,7 @@ from openpyxl import load_workbook, Workbook # Import openpyxl
 
 # Set the Replicate API token
 #os.environ["REPLICATE_API_TOKEN"] = "r8_bBCxqkUHTfwz818CIEtNtnojCT7yRZJ3gytkY"
-os.environ["REPLICATE_API_TOKEN"] = st.secrets["REPLICATE_API_TOKEN"]
+os.environ["REPLICATE_API_TOKEN"]: st.secrets["REPLICATE_API_TOKEN"]
 
 
 

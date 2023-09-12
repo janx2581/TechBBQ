@@ -127,7 +127,7 @@ if st.session_state['show_chatbot']:
 
 
     # Add a button to clear the form fields
-    st.button('Clear Chat History', on_click=clear_form)
+    #st.button('Clear Chat History', on_click=clear_form)
 
 
     # Function for generating LLaMA2 response

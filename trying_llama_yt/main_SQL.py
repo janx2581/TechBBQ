@@ -53,7 +53,6 @@ st.markdown("""
         .stTextInput input { background-color: #000000; color: #FFFFFF; border: 1px solid #FF0808; }
         .stButton>button { background-color: #FF0808; border: none; }
         .st-chat-messages { border: none; }
-        .stChatInput { background-color: #FF0808; }
     </style>
     """, unsafe_allow_html=True)
 

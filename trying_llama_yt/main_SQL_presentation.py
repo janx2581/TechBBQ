@@ -103,7 +103,7 @@ while True:
 
         new_entry = worksheet.get('c' + str(total_entries+1))  # Get the new entry
         if new_entry:
-            new_entry_text = new_entry[0][0].replace('\n', '<br>')
+            new_entry_text = new_entry[0][0]
         else:
             new_entry_text = ""
 

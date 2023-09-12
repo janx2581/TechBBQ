@@ -61,9 +61,6 @@ if 'show_chatbot' not in st.session_state:
 if 'show_info' not in st.session_state:
     st.session_state['show_info'] = True
 
-# Button to toggle both chatbot and information box visibility
-toggle_button = st.button("Hide/show rules box")
-
 # Toggle visibility based on button click
 if toggle_button:
     st.session_state['show_info'] = not st.session_state['show_info']
@@ -78,7 +75,10 @@ if st.session_state['show_info']:
     st.write("Creativity is measured by originality and ability to think outside the box")
     st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/).")
     st.write("")
-    st.write("press the button above and start prompting!")
+    st.write("PRESS THE BUTTON ABOVE AND START PROMPTING!")
+
+# Button to toggle both chatbot and information box visibility
+toggle_button = st.button("Hide/show rules box")
 
 # Display the chatbot section when 'show_chatbot' is True
 if st.session_state['show_chatbot']:

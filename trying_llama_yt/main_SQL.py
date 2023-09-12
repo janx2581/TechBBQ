@@ -188,7 +188,7 @@ if st.session_state['show_form']:
         consent = st.checkbox("I consent to the sharing of my personal data.")
 
         if consent:
-            if st.button(label='Submit Entry'):
+            if submit_button = st.form_submit_button(label='Submit Entry'):
                 data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
 
                 # Add a new row to the Google Sheets document

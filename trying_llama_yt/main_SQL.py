@@ -61,7 +61,7 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # Session state variable to control the visibility of the chatbot and information box
 if 'show_chatbot' not in st.session_state:
@@ -91,12 +91,6 @@ if st.session_state['show_info']:
 # Display the chatbot section when 'show_chatbot' is True
 if st.session_state['show_chatbot']:
 
-    # Create a sidebar with some information
-    with st.sidebar:
-        st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
-        st.markdown('It is called Health Tech Hygge AI')
-        st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
-
     # Store LLM generated responses in session state
     if "messages" not in st.session_state.keys():
         st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
@@ -112,10 +106,6 @@ if st.session_state['show_chatbot']:
         st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
         st.session_state['latest_response'] = ""
         st.session_state['show_form'] = False
-
-    # Add a button to clear chat history in the sidebar
-    st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
-
 
     # Function to clear the form
     # Initialize session state variables for the form fields
@@ -137,7 +127,7 @@ if st.session_state['show_chatbot']:
 
 
     # Add a button in the sidebar to clear the form fields
-    st.sidebar.button('Clear Form and Chat History', on_click=clear_form)
+    st.button('Clear Chat History', on_click=clear_form)
 
 
     # Function for generating LLaMA2 response
@@ -227,7 +217,7 @@ if st.session_state['show_chatbot']:
                 # Add a new row to the Google Sheets document
                 worksheet.append_row([data_dict['Name'], data_dict['Email'], data_dict['Creative Text']])
 
-                st.success('Submitted in google, thank you!')
+                st.success('Submitted, thank you! Look for it on the screen when the slide changes🥳')
 
                 clear_form()
 

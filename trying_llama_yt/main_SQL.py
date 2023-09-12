@@ -104,7 +104,7 @@ if st.session_state['show_chatbot']:
 
     # Store LLM generated responses in session state
     if "messages" not in st.session_state.keys():
-        st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below in the textbox at the buttom👇"}]
+        st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below in the textbox at the buttom👇 You might need to scroll"}]
 
     # Display or clear chat messages
     for message in st.session_state.messages:

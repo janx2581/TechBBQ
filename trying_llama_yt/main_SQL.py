@@ -91,7 +91,7 @@ if st.session_state['show_info']:
     st.markdown("### Rules Box and privacy policy")
     st.write("The rules: "
              "Use this as a chatbot. Prompt it to give a creative output about health tech. ")
-    st.write("3 Random and 2 creative outputs win a HTHC Waterbottle 💧")
+    st.write("3 Random and 2 creative outputs win a HTHC Waterbottle for each day of TechBBQ 💧")
     st.write("Creativity is measured by originality and ability to think outside the box")
     st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/privacy-policy/).")
     st.write("")

@@ -92,10 +92,10 @@ def load_data(offset, limit):
 
 
 previous_total_entries = get_total_entries()
-total_entries_display = st.empty()  # This line creates a placeholder for the total entries count
-
 
 while True:
+    total_entries = get_total_entries()
+
 
     if total_entries > previous_total_entries:
         # A new entry has been added
@@ -144,4 +144,3 @@ while True:
         countdown_timer.write(f"Next slide in: {i} seconds", unsafe_allow_html=True)
         time.sleep(1)
         countdown_timer.empty()
-

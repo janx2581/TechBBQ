@@ -33,6 +33,13 @@ st.set_page_config(page_title="User submissions", layout="wide")
 
 st.markdown("""
     <style>
+        .stApp { background-color: #000000; }
+        body { font-family: 'Times New Roman', sans-serif; line-height: 1.5; color: #FFFFFF; }
+    </style>
+    """, unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
         table {width:100%;}
         th {font-size:1.1em;}
         td {font-size:1.5em; white-space: pre-wrap; word-wrap: break-word;}

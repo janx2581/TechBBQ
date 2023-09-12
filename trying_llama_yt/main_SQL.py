@@ -72,6 +72,8 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+st.image('trying_llama_yt/icon white.png', width=50)
+
 # Session state variable to control the visibility of the chatbot and information box
 if 'show_chatbot' not in st.session_state:
     st.session_state['show_chatbot'] = False

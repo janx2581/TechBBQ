@@ -49,7 +49,7 @@ st.markdown("""
     <style>
         body { font-family: 'Times New Roman', sans-serif; line-height: 1.5; }
         .stTextInput input { background-color: #000000; color: #FFFFFF; border: 1px solid #FF0808; }
-        .stButton>button { background-color: #FF0808; border: none; }
+        .stButton>button { background-color: #FF0808; border: none; color: #FFFFFF; }
         .st-chat-messages { border: none; }
         .stChatInput { background-color: #FF0808; }
     </style>

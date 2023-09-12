@@ -95,7 +95,7 @@ previous_total_entries = get_total_entries()
 
 while True:
     total_entries = get_total_entries()
-
+    st.write(f"Total Entries: {total_entries}")
 
     if total_entries > previous_total_entries:
         # A new entry has been added
@@ -144,3 +144,4 @@ while True:
         countdown_timer.write(f"Next slide in: {i} seconds", unsafe_allow_html=True)
         time.sleep(1)
         countdown_timer.empty()
+

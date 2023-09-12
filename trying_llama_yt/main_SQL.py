@@ -185,6 +185,11 @@ if st.session_state['show_form']:
         participant_name = st.text_input("Name", value=st.session_state.get('participant_name', ''))
         participant_email = st.text_input("Email", value=st.session_state.get('participant_email', ''))
         participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
+        consent = st.checkbox("I consent to the sharing of my personal data with HTHC.")
+        if consent:
+            submit_button = st.form_submit_button(label='Submit Entry')
+        else:
+            st.write("Please consent to the sharing of personal data to submit the form.")
         submit_button = st.form_submit_button(label='Submit Entry')
 
 if submit_button:

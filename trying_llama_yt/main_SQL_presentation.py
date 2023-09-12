@@ -116,11 +116,10 @@ while True:
             countdown_timer.empty()
 
             # Display the new entry prominently
-            st.markdown('<h2 style="font-size:1em;"><i>New Entry:</i></h2>',
-                        unsafe_allow_html=True)
             new_entry_display.markdown(
-                f"<div style='font-size:1em;'>{new_entry_text}</div>",
-                unsafe_allow_html=True)
+                f"<div style='font-size:2em;'><i>New Entry:</i><br/>{new_entry_text}</div>",
+                unsafe_allow_html=True
+            )
 
         # Clear the new entry display
         new_entry_display.empty()

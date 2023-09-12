@@ -10,12 +10,8 @@ import pandas as pd
 from openpyxl import load_workbook, Workbook # Import openpyxl
 
 # Set the Replicate API token
-#os.environ["REPLICATE_API_TOKEN"] = "r8_bBCxqkUHTfwz818CIEtNtnojCT7yRZJ3gytkY"
+#os.environ["REPLICATE_API_TOKEN"] = "your_token_here"
 os.environ["REPLICATE_API_TOKEN"] = st.secrets["REPLICATE_API_TOKEN"]
-
-
-
-
 
 # Secrets work
 
@@ -67,7 +63,7 @@ with st.sidebar:
 
 # Store LLM generated responses in session state
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "content creator", "content": "Let me help you be creative"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:

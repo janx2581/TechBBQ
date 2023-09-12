@@ -55,6 +55,14 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+        .reportview-container::before {
+            content: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -84,7 +92,7 @@ if st.session_state['show_info']:
              "Use this as a chatbot. Prompt it to give a creative output about health tech. ")
     st.write("3 Random and 2 creative outputs win a HTHC Waterbottle 💧")
     st.write("Creativity is measured by originality and ability to think outside the box")
-    st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/).")
+    st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/privacy-policy/).")
     st.write("")
     st.write("PRESS THE BUTTON ABOVE AND START PROMPTING!")
 

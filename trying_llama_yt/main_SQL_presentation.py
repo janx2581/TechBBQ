@@ -52,7 +52,7 @@ st.markdown("""
 
 
 
-st.title('🔴⚪ User submissions for HTHC AI competition! 🔴⚪️')
+st.title('🔴⚪ User submissions for HTHC AI competition!!! 🔴⚪️')
 st.markdown('<h2 style="font-size:1.5em;">Create something creative about healthtech! Scan the QR code below</h2>', unsafe_allow_html=True)
 st.markdown('<h2 style="font-size:1em;">(I need to make this a bit more pretty)</h2>', unsafe_allow_html=True)
 st.image('trying_llama_yt/icon white.png', width=50)

@@ -54,159 +54,167 @@ st.markdown("""
         .st-chat-messages { border: none; }
     </style>
     """, unsafe_allow_html=True)
+# Session state variable to control the visibility of the chatbot
+if 'show_chatbot' not in st.session_state:
+    st.session_state['show_chatbot'] = False
 
+# Textbox and button to toggle chatbot visibility
 if 'show_info' not in st.session_state:
     st.session_state['show_info'] = True
 
 if st.session_state['show_info']:
     info_text = st.text_area("Information Box", "Some initial information here.")
-    if st.button("Hide Information Box"):
+    if st.button("Hide Information Box and Show Chatbot"):
         st.session_state['show_info'] = False
+        st.session_state['show_chatbot'] = True
 
-# Create a sidebar with some information
-with st.sidebar:
-    st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
-    st.markdown('It is called Health Tech Hygge AI')
-    st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
+# The chatbot section, visible only when 'show_chatbot' is True
+if st.session_state['show_chatbot']:
 
-# Store LLM generated responses in session state
-if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative"}]
+    # Create a sidebar with some information
+    with st.sidebar:
+        st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
+        st.markdown('It is called Health Tech Hygge AI')
+        st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
 
-# Display or clear chat messages
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+    # Store LLM generated responses in session state
+    if "messages" not in st.session_state.keys():
+        st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative"}]
 
-### Function to clear chat history
+    # Display or clear chat messages
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
 
-def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
-    st.session_state['latest_response'] = ""
-    st.session_state['show_form'] = False
+    ### Function to clear chat history
 
-# Add a button to clear chat history in the sidebar
-st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+    def clear_chat_history():
+        st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
+        st.session_state['latest_response'] = ""
+        st.session_state['show_form'] = False
 
-
-# Function to clear the form
-# Initialize session state variables for the form fields
-if 'participant_name' not in st.session_state:
-    st.session_state['participant_name'] = ""
-if 'participant_email' not in st.session_state:
-    st.session_state['participant_email'] = ""
-if 'participant_entry' not in st.session_state:
-    st.session_state['participant_entry'] = st.session_state.get('latest_response', '')
-
-# Function to clear the form fields
-def clear_form():
-    st.session_state['participant_name'] = ""
-    st.session_state['participant_email'] = ""
-    st.session_state['latest_response'] = ""
-    st.session_state['participant_entry'] = st.session_state.get('latest_response', '')
-    st.session_state['show_form'] = False
-    clear_chat_history()
+    # Add a button to clear chat history in the sidebar
+    st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 
-# Add a button in the sidebar to clear the form fields
-st.sidebar.button('Clear Form and Chat History', on_click=clear_form)
+    # Function to clear the form
+    # Initialize session state variables for the form fields
+    if 'participant_name' not in st.session_state:
+        st.session_state['participant_name'] = ""
+    if 'participant_email' not in st.session_state:
+        st.session_state['participant_email'] = ""
+    if 'participant_entry' not in st.session_state:
+        st.session_state['participant_entry'] = st.session_state.get('latest_response', '')
+
+    # Function to clear the form fields
+    def clear_form():
+        st.session_state['participant_name'] = ""
+        st.session_state['participant_email'] = ""
+        st.session_state['latest_response'] = ""
+        st.session_state['participant_entry'] = st.session_state.get('latest_response', '')
+        st.session_state['show_form'] = False
+        clear_chat_history()
 
 
-# Function for generating LLaMA2 response
-def generate_llama2_response(prompt_input):
-    # Build the string dialogue by combining user and assistant messages
-    string_dialogue = "You are a creative content creator from Health Tech Hub Copenhagen. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'. Health Tech Hub Copenhagen's catchphrase is Making Health Tech Everyones Business"
-    for dict_message in st.session_state.messages:
-        if dict_message["role"] == "user":
-            string_dialogue += "User: " + dict_message["content"] + "\n\n"
-        else:
-            string_dialogue += "Assistant: " + dict_message["content"] + "\n\n"
+    # Add a button in the sidebar to clear the form fields
+    st.sidebar.button('Clear Form and Chat History', on_click=clear_form)
 
-    # Generate LLaMA2 response using the replicate.run() function
-    output = replicate.run(
-        # 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5', # The 13B parameter model
-        "meta/llama-2-70b-chat:35042c9a33ac8fd5e29e27fb3197f33aa483f72c2ce3b0b9d201155c7fd2a287", # The 70B parameter model
-        input={"prompt": f"{string_dialogue} {prompt_input} Assistant: ",
-               "temperature": 0.1, "top_p": 0.9, "max_length": 1024, "repetition_penalty": 1})
-    # Get the output as a string
-    output = ''.join(output)
 
-    # Ensure the output ends with a complete sentence
-    if not output.endswith(('.', '!', '?')):
-        sentences = output.split('.')
-        if len(sentences) > 1:
-            output = '.'.join(sentences[:-1]) + '.'
+    # Function for generating LLaMA2 response
+    def generate_llama2_response(prompt_input):
+        # Build the string dialogue by combining user and assistant messages
+        string_dialogue = "You are a creative content creator from Health Tech Hub Copenhagen. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'. Health Tech Hub Copenhagen's catchphrase is Making Health Tech Everyones Business"
+        for dict_message in st.session_state.messages:
+            if dict_message["role"] == "user":
+                string_dialogue += "User: " + dict_message["content"] + "\n\n"
+            else:
+                string_dialogue += "Assistant: " + dict_message["content"] + "\n\n"
 
-    return output
+        # Generate LLaMA2 response using the replicate.run() function
+        output = replicate.run(
+            # 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5', # The 13B parameter model
+            "meta/llama-2-70b-chat:35042c9a33ac8fd5e29e27fb3197f33aa483f72c2ce3b0b9d201155c7fd2a287", # The 70B parameter model
+            input={"prompt": f"{string_dialogue} {prompt_input} Assistant: ",
+                   "temperature": 0.1, "top_p": 0.9, "max_length": 1024, "repetition_penalty": 1})
+        # Get the output as a string
+        output = ''.join(output)
 
-# Get user input prompt using st.chat_input()
-if prompt := st.chat_input(disabled=not os.environ['REPLICATE_API_TOKEN']):
-    # Add user message to session state
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.write(prompt)
+        # Ensure the output ends with a complete sentence
+        if not output.endswith(('.', '!', '?')):
+            sentences = output.split('.')
+            if len(sentences) > 1:
+                output = '.'.join(sentences[:-1]) + '.'
 
-# Generate a new response if the last message is not from the assistant
-if st.session_state.messages and st.session_state.messages[-1]["role"] != "assistant": # Changed something here
-    with st.chat_message("Assistant"):
-        with st.spinner("Thinking..."):
-            # Generate LLaMA2 response using the generate_llama2_response() function
-            response = generate_llama2_response(prompt)
-            placeholder = st.empty()
-            full_response = ''
-            for item in response:
-                full_response += item
+        return output
+
+    # Get user input prompt using st.chat_input()
+    if prompt := st.chat_input(disabled=not os.environ['REPLICATE_API_TOKEN']):
+        # Add user message to session state
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.write(prompt)
+
+    # Generate a new response if the last message is not from the assistant
+    if st.session_state.messages and st.session_state.messages[-1]["role"] != "assistant": # Changed something here
+        with st.chat_message("Assistant"):
+            with st.spinner("Thinking..."):
+                # Generate LLaMA2 response using the generate_llama2_response() function
+                response = generate_llama2_response(prompt)
+                placeholder = st.empty()
+                full_response = ''
+                for item in response:
+                    full_response += item
+                    placeholder.markdown(full_response)
                 placeholder.markdown(full_response)
-            placeholder.markdown(full_response)
-    message = {"role": "assistant", "content": full_response}
-    st.session_state.messages.append(message)
-    st.session_state['latest_response'] = full_response  # Store the latest response in session state
-    st.session_state['show_form'] = False
+        message = {"role": "assistant", "content": full_response}
+        st.session_state.messages.append(message)
+        st.session_state['latest_response'] = full_response  # Store the latest response in session state
+        st.session_state['show_form'] = False
 
-# Check if the form should be visible
-if 'show_form' not in st.session_state:
-    st.session_state['show_form'] = False
+    # Check if the form should be visible
+    if 'show_form' not in st.session_state:
+        st.session_state['show_form'] = False
 
-# Create a button to toggle the visibility of the form
-if st.button('Ready to submit? Click here'):
-    st.session_state['show_form'] = not st.session_state['show_form']
+    # Create a button to toggle the visibility of the form
+    if st.button('Ready to submit? Click here'):
+        st.session_state['show_form'] = not st.session_state['show_form']
 
-# Placeholder to hold the form
-form_placeholder = st.empty()
+    # Placeholder to hold the form
+    form_placeholder = st.empty()
 
-submit_button = None  # or submit_button = False
+    submit_button = None  # or submit_button = False
 
 
-#    # If the button has been pressed, show the form
-#    if st.session_state['show_form']:
-#        with form_placeholder.form(key='entry_form'):
-#            st.header("please fill out below")
-#            participant_name = st.text_input("Name")
-#            participant_email = st.text_input("Email")
-#            participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
-#            submit_button = st.form_submit_button(label='Submit Entry')
+    #    # If the button has been pressed, show the form
+    #    if st.session_state['show_form']:
+    #        with form_placeholder.form(key='entry_form'):
+    #            st.header("please fill out below")
+    #            participant_name = st.text_input("Name")
+    #            participant_email = st.text_input("Email")
+    #            participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
+    #            submit_button = st.form_submit_button(label='Submit Entry')
 
-# If the button has been pressed, show the form
-if st.session_state['show_form']:
-    with form_placeholder.form(key='entry_form'):
-        st.header("please fill out below")
-        participant_name = st.text_input("Name", value=st.session_state.get('participant_name', ''))
-        participant_email = st.text_input("Email", value=st.session_state.get('participant_email', ''))
-        participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
-        if st.form_submit_button(label='Submit Entry'):
-            data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
+    # If the button has been pressed, show the form
+    if st.session_state['show_form']:
+        with form_placeholder.form(key='entry_form'):
+            st.header("please fill out below")
+            participant_name = st.text_input("Name", value=st.session_state.get('participant_name', ''))
+            participant_email = st.text_input("Email", value=st.session_state.get('participant_email', ''))
+            participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
+            if st.form_submit_button(label='Submit Entry'):
+                data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
 
-            # Add a new row to the Google Sheets document
-            worksheet.append_row([data_dict['Name'], data_dict['Email'], data_dict['Creative Text']])
+                # Add a new row to the Google Sheets document
+                worksheet.append_row([data_dict['Name'], data_dict['Email'], data_dict['Creative Text']])
 
-            st.success('Submitted in google, thank you!')
+                st.success('Submitted in google, thank you!')
 
-            clear_form()
+                clear_form()
 
-            for i in range(5, 0, -1):
-                st.write(f"New session in: {i}")
-                time.sleep(1)
+                for i in range(5, 0, -1):
+                    st.write(f"New session in: {i}")
+                    time.sleep(1)
 
-            st.experimental_rerun()
+                st.experimental_rerun()
 
 

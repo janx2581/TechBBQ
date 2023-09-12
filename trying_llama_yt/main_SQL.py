@@ -160,7 +160,7 @@ if st.session_state['show_chatbot']:
         return output
 
     # Get user input prompt using st.chat_input()
-    if prompt := st.chat_input(disabled=not os.environ['REPLICATE_API_TOKEN']):
+    if prompt := st.chat_input(disabled=not os.environ['REPLICATE_API_TOKEN'], placeholder="PROMPT HERE"):
         # Add user message to session state
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):

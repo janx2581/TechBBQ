@@ -42,8 +42,7 @@ worksheet = spreadsheet.get_worksheet(0)
 
 
 # Set the title of the app
-st.set_page_config(page_title="SQL HTHC AI 🔴⚪️",
-                   colour_theme="dark")
+st.set_page_config(page_title="SQL HTHC AI 🔴⚪️")
 
 # Add custom CSS styling to the app
 st.markdown("""

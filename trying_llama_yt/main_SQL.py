@@ -42,7 +42,8 @@ worksheet = spreadsheet.get_worksheet(0)
 
 
 # Set the title of the app
-st.set_page_config(page_title="SQL HTHC AI 🔴⚪️")
+st.set_page_config(page_title="SQL HTHC AI 🔴⚪️",
+                   color_theme="dark")
 
 # Add custom CSS styling to the app
 st.markdown("""
@@ -52,6 +53,7 @@ st.markdown("""
         .stTextInput input { background-color: #000000; color: #FFFFFF; border: 1px solid #FF0808; }
         .stButton>button { background-color: #FF0808; border: none; }
         .st-chat-messages { border: none; }
+        .stChatInput { background-color: red; border: white; }
     </style>
     """, unsafe_allow_html=True)
 

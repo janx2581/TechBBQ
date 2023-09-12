@@ -185,9 +185,6 @@ if st.session_state['show_form']:
         participant_name = st.text_input("Name", value=st.session_state.get('participant_name', ''))
         participant_email = st.text_input("Email", value=st.session_state.get('participant_email', ''))
         participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
-        consent = st.checkbox("I consent to the sharing of my personal data.")
-
-        if consent:
             if st.form_submit_button(label='Submit Entry'):
                 data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
 
@@ -203,19 +200,5 @@ if st.session_state['show_form']:
                     time.sleep(1)
 
                 st.experimental_rerun()
-        else:
-            st.markdown('''
-                        <style>
-                            .fake-button {
-                                padding: 0.65em 1.6em;
-                                color: #fff;
-                                background-color: #gray;
-                                border: none;
-                                cursor: not-allowed;
-                            }
-                        </style>
-                        <button class="fake-button" disabled>Submit Entry</button>
-                    ''', unsafe_allow_html=True)
-            st.warning("Please consent to the sharing of personal data to submit the form.")
 
 

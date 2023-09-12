@@ -218,7 +218,7 @@ if st.session_state['show_chatbot']:
             st.header("please fill out below")
             participant_name = st.text_input("Name", value=st.session_state.get('participant_name', ''))
             participant_email = st.text_input("Email", value=st.session_state.get('participant_email', ''))
-            participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
+            participant_entry = st.text_area("Your Creative Text (feel free to edit it as needed)", value=st.session_state.get('latest_response', ''))
             if st.form_submit_button(label='Submit Entry'):
                 data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
 

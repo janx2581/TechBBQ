@@ -60,8 +60,8 @@ st.markdown("""
 
 st.image('trying_llama_yt/icon white.png', width=50)
 st.markdown('<h1 style="text-align: center;">🔴⚪ Your submissions for the HTHC AI competition! 🔴⚪️</h1>', unsafe_allow_html=True)
-st.markdown('<h2 style="font-size:1.5em;">Create something creative about healthtech! Scan the QR code below</h2>', unsafe_allow_html=True)
-st.markdown('<h2 style="font-size:1em;">(I need to make this a bit more pretty)</h2>', unsafe_allow_html=True)
+st.markdown('<h2 style="font-size:1.5em;">Create something creative about healthtech! Scan the QR code to enter the competition</h2>', unsafe_allow_html=True)
+st.markdown('<h2 style="font-size:1em;">(3 Random and the 2 most creative submissions win a HTHC waterbottle)</h2>', unsafe_allow_html=True)
 
 new_entry_display = st.empty()  # Move this line up to reserve space for the new entry above the table
 

@@ -95,7 +95,7 @@ if st.session_state['show_info']:
              "Use this as a chatbot. Prompt it to give a creative output about health tech. ")
     st.write("3 Random and 2 creative outputs win a HTHC Waterbottle for each day of TechBBQ 💧")
     st.write("Creativity is measured by originality and ability to think outside the box")
-    st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/privacy-policy/).")
+    st.write("By submitting, you accept HTHC's [privacy policy](https://healthtechhub.org/privacy-policy/) and sign up for our monthly newsletter")
     st.write("")
     st.write("PRESS THE BUTTON ABOVE AND START PROMPTING!")
 

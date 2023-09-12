@@ -52,7 +52,7 @@ st.markdown("""
 
 
 
-st.title('🔴⚪ User submissions for HTHC AI competition!!! 🔴⚪️')
+st.title('🔴⚪ User submissions for HTHC AI competition! 🔴⚪️')
 st.markdown('<h2 style="font-size:1.5em;">Create something creative about healthtech! Scan the QR code below</h2>', unsafe_allow_html=True)
 st.markdown('<h2 style="font-size:1em;">(I need to make this a bit more pretty)</h2>', unsafe_allow_html=True)
 st.image('trying_llama_yt/icon white.png', width=50)
@@ -117,7 +117,7 @@ while True:
 
             # Display the new entry prominently
             new_entry_display.markdown(
-                f"<div style='font-size:2em;'><i>New Entry?!?:</i><br/>{new_entry_text}</div>",
+                f"<div style='font-size:2em;'><i>New Entry:</i><br/><b>{new_entry_text}</b></div>",
                 unsafe_allow_html=True
             )
 

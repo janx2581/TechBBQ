@@ -47,8 +47,7 @@ st.set_page_config(page_title="HTHC AI 🔴⚪️")
 # Add custom CSS styling to the app
 st.markdown("""
     <style>
-        .stApp { background-color: #000000; }
-        body { font-family: 'Times New Roman', sans-serif; line-height: 1.5; color: #FFFFFF; }
+        body { font-family: 'Times New Roman', sans-serif; line-height: 1.5; }
         .stTextInput input { background-color: #000000; color: #FFFFFF; border: 1px solid #FF0808; }
         .stButton>button { background-color: #FF0808; border: none; }
         .st-chat-messages { border: none; }

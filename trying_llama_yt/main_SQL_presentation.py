@@ -92,10 +92,12 @@ def load_data(offset, limit):
 
 
 previous_total_entries = get_total_entries()
+total_entries_display = st.empty()  # This line creates a placeholder for the total entries count
+
 
 while True:
-    total_entries = get_total_entries()
-    st.write(f"Total Entries: {total_entries}")
+    total_entries = get_total_entries()  # Get the updated count of total entries
+    total_entries_display.text(f"Total Entries: {total_entries}")  # This line updates the display in place
 
     if total_entries > previous_total_entries:
         # A new entry has been added

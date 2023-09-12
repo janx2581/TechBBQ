@@ -71,9 +71,8 @@ if toggle_button:
 
 # Display the information box when 'show_info' is True
 if st.session_state['show_info']:
-    st.markdown("### Information Box")
-    st.write("The rules: ")
-    info_text = st.text_area("Information Box", "Some initial information here.")
+    st.markdown("### Information Box and privacy policy")
+    st.write("The rules: <br/> Use this as a chatbot. Prompt it to give a creative output about health tech. <br/> By submitting, you accept HTHC's privacy policy [privacy policy](https://healthtechhub.org/). ")
 
 # Display the chatbot section when 'show_chatbot' is True
 if st.session_state['show_chatbot']:
@@ -86,7 +85,7 @@ if st.session_state['show_chatbot']:
 
     # Store LLM generated responses in session state
     if "messages" not in st.session_state.keys():
-        st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative"}]
+        st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
 
     # Display or clear chat messages
     for message in st.session_state.messages:

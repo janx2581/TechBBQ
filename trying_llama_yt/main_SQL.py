@@ -55,6 +55,14 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+if 'show_info' not in st.session_state:
+    st.session_state['show_info'] = True
+
+if st.session_state['show_info']:
+    info_text = st.text_area("Information Box", "Some initial information here.")
+    if st.button("Hide Information Box"):
+        st.session_state['show_info'] = False
+
 # Create a sidebar with some information
 with st.sidebar:
     st.title('Welcome to the HTHC AI chatbot 🔴⚪️')

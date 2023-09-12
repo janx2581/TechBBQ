@@ -117,7 +117,7 @@ while True:
 
             # Display the new entry prominently
             new_entry_display.markdown(
-                f"<div style='font-size:3em;'><i>New Entry:</i> <br><p style='font-size:3em;'>{new_entry_text}</p></div>",
+                f"<div style='font-size:3em;'><i>New Entry:</i> <br><p style='font-size:1em;'>{new_entry_text}</p></div>",
                 unsafe_allow_html=True)
 
         # Clear the new entry display

@@ -63,11 +63,7 @@ st.markdown("""
 
 
 st.image('trying_llama_yt/icon white.png', width=50)
-
-# Create a sidebar with some information
-with st.sidebar:
-    st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
-    st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
+st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
 
 # Store LLM generated responses in session state
 if "messages" not in st.session_state.keys():
@@ -102,11 +98,6 @@ def clear_form():
     st.session_state['participant_entry'] = st.session_state.get('latest_response', '')
     st.session_state['show_form'] = False
     clear_chat_history()
-
-
-# Add a button to clear the form fields
-st.sidebar.button('Clear Chat History', on_click=clear_form)
-
 
 # Function for generating LLaMA2 response
 def generate_llama2_response(prompt_input):

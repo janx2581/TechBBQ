@@ -40,7 +40,7 @@ spreadsheet = client.open('HTHC-techbbq-sheet')
 worksheet = spreadsheet.get_worksheet(0)
 
 # Set the title of the app
-st.set_page_config(page_title="HTHC AI 🔴⚪️")
+st.set_page_config(page_title="HTHC AI 🔴⚪️", initial_sidebar_state="expanded")
 
 # Add custom CSS styling to the app
 st.markdown("""

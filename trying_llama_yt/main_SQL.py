@@ -123,8 +123,7 @@ def generate_llama2_response(prompt_input):
     if not output.endswith(('.', '!', '?')):
         sentences = output.split('.')
         if len(sentences) > 1:
-            output = '.'.join(sentences[:-1]) + '...'
-            output += ' (_Response has been trimmed. Please write "continue" to get the rest_)'
+            output = '.'.join(sentences[:-1]) + '.'
     return output
 
 # Get user input prompt using st.chat_input()

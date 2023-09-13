@@ -121,9 +121,10 @@ def generate_llama2_response(prompt_input):
     # Ensure the output ends with a complete sentence
     if not output.endswith(('.', '!', '?')):
         sentences = output.split('.')
+        print("this answer has been shortened (first)")
         if len(sentences) > 1:
             output = '.'.join(sentences[:-1]) + '.'
-            print("This answer was too long and has been shortened")
+            print("This answer was too long and has been shortened (last)")
 
     return output
 

@@ -67,7 +67,6 @@ st.image('trying_llama_yt/icon white.png', width=50)
 # Create a sidebar with some information
 with st.sidebar:
     st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
-    st.markdown('It is called Health Tech Hygge AI')
     st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
 
 # Store LLM generated responses in session state
@@ -159,51 +158,3 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] != "assis
     st.session_state.messages.append(message)
     st.session_state['latest_response'] = full_response  # Store the latest response in session state
     st.session_state['show_form'] = False
-
-# Check if the form should be visible
-if 'show_form' not in st.session_state:
-    st.session_state['show_form'] = False
-
-# Create a button to toggle the visibility of the form
-if st.button('Finnished prompting and ready to submit? Click here'):
-    st.session_state['show_form'] = not st.session_state['show_form']
-
-# Placeholder to hold the form
-form_placeholder = st.empty()
-
-submit_button = None  # or submit_button = False
-
-
-#    # If the button has been pressed, show the form
-#    if st.session_state['show_form']:
-#        with form_placeholder.form(key='entry_form'):
-#            st.header("please fill out below")
-#            participant_name = st.text_input("Name")
-#            participant_email = st.text_input("Email")
-#            participant_entry = st.text_area("Your Creative Text", value=st.session_state.get('latest_response', ''))
-#            submit_button = st.form_submit_button(label='Submit Entry')
-
-# If the button has been pressed, show the form
-if st.session_state['show_form']:
-    with form_placeholder.form(key='entry_form'):
-        st.header("please fill out below")
-        participant_name = st.text_input("Name", value=st.session_state.get('participant_name', ''))
-        participant_email = st.text_input("Email", value=st.session_state.get('participant_email', ''))
-        participant_entry = st.text_area("Your Creative Text (feel free to edit it as needed)", value=st.session_state.get('latest_response', ''))
-        if st.form_submit_button(label='Submit Entry'):
-            data_dict = {'Name': participant_name, 'Email': participant_email, 'Creative Text': participant_entry}
-
-            # Add a new row to the Google Sheets document
-            worksheet.append_row([data_dict['Name'], data_dict['Email'], data_dict['Creative Text']])
-
-            st.success('Submitted, thank you! Look for it on the screen when the slide changes🥳')
-
-            clear_form()
-
-            for i in range(5, 0, -1):
-                st.write(f"New session in: {i}")
-                time.sleep(1)
-
-            st.experimental_rerun()
-
-

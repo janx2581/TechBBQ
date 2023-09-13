@@ -153,7 +153,7 @@ if st.session_state['show_chatbot']:
             # 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5', # The 13B parameter model
             "meta/llama-2-70b-chat:35042c9a33ac8fd5e29e27fb3197f33aa483f72c2ce3b0b9d201155c7fd2a287", # The 70B parameter model
             input={"prompt": f"{string_dialogue} {prompt_input} Assistant: ",
-                   "temperature": 0.1, "top_p": 0.9, "max_length": 4096, "repetition_penalty": 1})
+                   "temperature": 0.1, "top_p": 0.9, "max_length": 8192, "repetition_penalty": 1})
         # Get the output as a string
         output = ''.join(output)
 

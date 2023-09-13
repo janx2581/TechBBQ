@@ -123,6 +123,7 @@ def generate_llama2_response(prompt_input):
         sentences = output.split('.')
         if len(sentences) > 1:
             output = '.'.join(sentences[:-1]) + '.'
+    print("answer has been shortened")
     return output
 
 # Get user input prompt using st.chat_input()

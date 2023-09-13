@@ -123,8 +123,8 @@ def generate_llama2_response(prompt_input):
         sentences = output.split('.')
         if len(sentences) > 1:
             output = '.'.join(sentences[:-1]) + '.'
-    print("answer has been shortened")
     return output
+    print("answer has been shortened")
 
 # Get user input prompt using st.chat_input()
 if prompt := st.chat_input(disabled=not os.environ['REPLICATE_API_TOKEN'], placeholder="PROMPT HTHC'S AI HERE 🔴⚪️"):

@@ -97,6 +97,7 @@ def load_data(offset, limit):
 
 
 previous_total_entries = get_total_entries()
+print("Initial Total Entries:", previous_total_entries)
 
 while True:
     total_entries = get_total_entries()

@@ -123,6 +123,7 @@ def generate_llama2_response(prompt_input):
         sentences = output.split('.')
         if len(sentences) > 1:
             output = '.'.join(sentences[:-1]) + '.'
+            print("This answer was too long and has been shortened")
 
     return output
 

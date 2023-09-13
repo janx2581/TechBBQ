@@ -58,7 +58,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.image('trying_llama_yt/icon white.png', width=50)
-st.image('trying_llama_yt/QR_code_streamlit_app.png', width=100)
 st.markdown('<h1 style="text-align: center;">🔴⚪ HTHC AI competition! 🔴⚪️</h1>', unsafe_allow_html=True)
 st.markdown('<h2 style="text-align: center;">Your submissions for the competition!</h2>', unsafe_allow_html=True)
 st.markdown('<h2 style="font-size:1.5em;">Create something creative about healthtech! Scan the QR code to enter the competition</h2>', unsafe_allow_html=True)

@@ -83,11 +83,14 @@ st.markdown("""
 
 st.image('trying_llama_yt/icon white.png', width=50)
 st.title('🔴⚪ Welcome to the HTHC AI chatbot ⚪🔴')
-if st.button('Value Prop for Startups'):
+
+st.write('<p style="text-align: center;">', unsafe_allow_html=True)
+
+if st.button('What is the value prop for member startups?'):
     prompt = "What is the value prop for member startups?"
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-if st.button('HTHC Partners'):
+if st.button('Who is HTHCs partners?'):
     prompt = "Who is HTHC's partners?"
     st.session_state.messages.append({"role": "user", "content": prompt})
 
@@ -98,6 +101,9 @@ if st.button('Who is Jan Høegh?'):
 if st.button('Explain HTHC to an Investor'):
     prompt = "Explain HTHC to an investor"
     st.session_state.messages.append({"role": "user", "content": prompt})
+
+st.write('</p>', unsafe_allow_html=True)
+
 
 # Store LLM generated responses in session state
 if "messages" not in st.session_state.keys():

@@ -47,7 +47,7 @@ st.set_page_config(page_title="HTHC AI 🔴⚪️", initial_sidebar_state="expan
 
 # Set sidebar
 with st.sidebar:
-    st.title('🔴⚪ Welcome to the HTHC AI chatbot ⚪🔴️')
+    st.title('Welcome to the HTHC AI chatbot️')
     st.markdown('A demo for Schultz Jørgensen Kom')
     st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
     st.markdown('*Read about Health Tech Hub Copenhagens privacy policy [here](https://healthtechhub.org/privacy-policy/)*')
@@ -82,7 +82,7 @@ st.markdown("""
 
 
 st.image('trying_llama_yt/icon white.png', width=50)
-st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
+st.title('🔴⚪ Welcome to the HTHC AI chatbot ⚪🔴')
 
 # Store LLM generated responses in session state
 if "messages" not in st.session_state.keys():

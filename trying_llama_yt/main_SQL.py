@@ -42,6 +42,23 @@ worksheet = spreadsheet.get_worksheet(0)
 # Set the title of the app
 st.set_page_config(page_title="HTHC AI 🔴⚪️", initial_sidebar_state="expanded")
 
+
+# Set sidebar
+with st.sidebar:
+    st.title('Welcome to the HTHC AI chatbot 🔴⚪️')
+    st.markdown('A demo for Schultz Jørgesen Kom')
+    st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
+    st.markdown('*Read about Health Tech Hub Copenhagens privacy policy [here](https://healthtechhub.org/privacy-policy/)*')
+
+# Add a button to clear chat history in the sidebar
+### Function to clear chat history
+def clear_chat_history():
+    st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
+    st.session_state['latest_response'] = ""
+    st.session_state['show_form'] = False
+st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+
+
 # Add custom CSS styling to the app
 st.markdown("""
     <style>

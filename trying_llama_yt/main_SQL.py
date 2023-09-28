@@ -51,6 +51,21 @@ with st.sidebar:
     st.markdown('A demo for Schultz Jørgensen Kom')
     st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
     st.markdown('*Read about Health Tech Hub Copenhagens privacy policy [here](https://healthtechhub.org/privacy-policy/)*')
+    if st.button('Value Prop for Startups'):
+        prompt = "What is the value prop for member startups?"
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+    if st.button('HTHC Partners'):
+        prompt = "Who is HTHC's partners?"
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+    if st.button('Who is Jan Høegh?'):
+        prompt = "Who is Jan Høegh?"
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+    if st.button('Explain HTHC to an Investor'):
+        prompt = "Explain HTHC to an investor"
+        st.session_state.messages.append({"role": "user", "content": prompt})
 
 # Add a button to clear chat history in the sidebar
 ### Function to clear chat history

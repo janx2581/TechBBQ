@@ -87,7 +87,7 @@ st.title('🔴⚪ Welcome to the HTHC AI chatbot ⚪🔴')
 
 # Store LLM generated responses in session state
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Ask me questions about Health Tech Hub Copenhagen! Use the textbox below 👇 or press one of the buttons above"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Ask me questions about Health Tech Hub Copenhagen! Use the textbox below 👇"}]
 
 
 st.write('<p style="text-align: center;">', unsafe_allow_html=True)

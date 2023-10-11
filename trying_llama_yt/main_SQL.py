@@ -6,7 +6,7 @@ import time
 import gspread
 from google.oauth2.service_account import Credentials
 from HTHC_dialogue_TechBBQ import string_HTHC_dialogue
-
+from Smartcloud_dialogue import string_Smartcloud_dialogue
 
 import pandas as pd
 from openpyxl import load_workbook, Workbook # Import openpyxl
@@ -48,7 +48,7 @@ st.set_page_config(page_title="HTHC AI 🔴⚪️", initial_sidebar_state="expan
 # Set sidebar
 with st.sidebar:
     st.title('Welcome to the HTHC AI chatbot️')
-    st.markdown('A demo for Schultz Jørgensen Kom')
+    st.markdown('A demo for Niels Storgaard / Policy Group')
     st.markdown('📖 Learn more about Health Tech Hub Copenhagen [here](https://healthtechhub.org/)!')
     st.markdown('*Read about Health Tech Hub Copenhagens privacy policy [here](https://healthtechhub.org/privacy-policy/)*')
 

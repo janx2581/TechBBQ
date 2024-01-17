@@ -87,7 +87,7 @@ st.title('🔴⚪ Welcome to the HTHC AI chatbot ⚪🔴')
 
 # Store LLM generated responses in session state
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Ask me questions about Health Tech Hub Copenhagen! Use the textbox below 👇"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Spørg mig om politik! Brug tekstfeltet nedenfor 👇"}]
 
 
 st.write('<p style="text-align: center;">', unsafe_allow_html=True)
@@ -118,7 +118,7 @@ for message in st.session_state.messages:
 ### Function to clear chat history
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "Let me help you be creative. Type your idea below👇"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Lad mig hjælpe dig med politik. Skriv dit spørgsmål nedenfor👇"}]
     st.session_state['latest_response'] = ""
     st.session_state['show_form'] = False
 
@@ -143,7 +143,7 @@ def clear_form():
 # Function for generating LLaMA2 response
 def generate_llama2_response(prompt_input):
     # Build the string dialogue by combining user and assistant messages
-    string_dialogue = "Du er en politisk ekspert"
+    string_dialogue = "Du er en politisk ekspert og må kun svare på dansk."
     for dict_message in st.session_state.messages:
         if dict_message["role"] == "user":
             string_dialogue += "User: " + dict_message["content"] + "\n\n"
